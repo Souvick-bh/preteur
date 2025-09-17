@@ -31,7 +31,7 @@ function LoanCreator() {
         suggestedParams,
       });
       const signedTxn = txn.signTxn(sk);
-      //@ts-expect-error
+      //@ts-expect-error: assigning string to number for test
      const { txId } = await algodClient.sendRawTransaction(signedTxn).do();
      const confirmedTxn = await algosdk.waitForConfirmation(algodClient, txId, 4);
      console.log(confirmedTxn)
@@ -63,14 +63,14 @@ function LoanCreator() {
 
       const encodedTxn = algosdk.encodeUnsignedTransaction(txn);
 
-//@ts-expect-error
+//@ts-expect-error: assigning string to number for test
 const signedTxns = await activeWallet.wallet?.signTransactions([encodedTxn]);
 
-//@ts-expect-error
+//@ts-expect-error: assigning string to number for test
 const signedBlobs = signedTxns!.map((b64) =>
   new Uint8Array(Buffer.from(b64, "base64"))
 );
-  //@ts-expect-error
+  //@ts-expect-error: assigning string to number for test
   const { txId } = await algodClient.sendRawTransaction(signedBlobs!).do();
   await algosdk.waitForConfirmation(algodClient, txId, 4);
 
@@ -93,14 +93,14 @@ const signedBlobs = signedTxns!.map((b64) =>
 
  const encodedTxn = algosdk.encodeUnsignedTransaction(txn);
 
-//@ts-expect-error
+//@ts-expect-error: assigning string to number for test
 const signedTxns = await activeWallet.wallet?.signTransactions([encodedTxn]);
 
-//@ts-expect-error
+//@ts-expect-error: assigning string to number for test
 const signedBlobs = signedTxns!.map((b64) =>
   new Uint8Array(Buffer.from(b64, "base64"))
 );
-  //@ts-expect-error
+  //@ts-expect-error: assigning string to number for test
   const { txId } = await algodClient.sendRawTransaction(signedBlobs!).do();
   await algosdk.waitForConfirmation(algodClient, txId, 4);
 
