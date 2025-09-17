@@ -13,7 +13,7 @@ export const WalletMenu = () => {
     return(
         <div className='flex flex-col gap-6'>
             <ConnectedWallet wallet={activeWallet} />
-            {/* <AssetCreator /> */}
+            <AssetCreator />
         </div>
     ) 
   }

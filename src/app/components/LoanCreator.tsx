@@ -14,7 +14,7 @@ function LoanCreator() {
 
 
 //   const [loans, setLoans] = useState<any[]>([]);
-  const { activeWallet,signTransactions, algodClient } = useWallet()
+  const { activeWallet, algodClient } = useWallet()
 
   const central_secret = new Uint8Array([186, 131, 247, 63, 0, 57, 7, 26, 200, 149, 190,
     194, 11, 170, 18, 245, 222, 2, 232, 212, 189, 180,

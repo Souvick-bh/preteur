@@ -1,5 +1,5 @@
 "use client";
-import { useWallet, type Wallet } from '@txnlab/use-wallet-react';
+import { useWallet } from '@txnlab/use-wallet-react';
 import algosdk from 'algosdk';
 import React from 'react'
 
@@ -11,7 +11,7 @@ export default function AssetCreator() {
 
   // const algodClient = new algosdk.Algodv2(algodToken,algodServer,algodPort);
 
-  const {wallets, activeWallet,activeAddress,signTransactions,algodClient } = useWallet();
+  const { activeWallet,signTransactions,algodClient } = useWallet();
   const creator = activeWallet?.activeAccount?.address
 
   async function handleCreate() {
@@ -39,9 +39,9 @@ export default function AssetCreator() {
       clawback: creator,
       assetURL: uri,
       //@ts-ignore
-      total: 1,
+      total: supply,
       //@ts-ignore
-      decimals: 0,
+      decimals: decimals,
     });
 
     const signedTxn = await signTransactions([txn])
@@ -52,6 +52,7 @@ export default function AssetCreator() {
       txid,
       3
     );
+    console.log(result)
   }
 
 
@@ -59,10 +60,11 @@ export default function AssetCreator() {
     return(
         <div>
           <div className='flex flex-col gap-3 items-center'>
+            <div>Token Launchpad</div>
             <input className='border-1 border-[#252525] p-1 w-fit' placeholder='Unit-Name' id='unitName' type="text" />
             <input className='border-1 border-[#252525] p-1 w-fit' placeholder='Asset-Name' id='assetName' type="text" />
             <input className='border-1 border-[#252525] p-1 w-fit' placeholder='Supply' id='supply' type="number" />
-            <input className='border-1 border-[#252525] p-1 w-fit' placeholder='Asset-Offchain_Url' id='uri' type="text" />
+            <input className='border-1 border-[#252525] p-1 w-fit' placeholder='URI (optional)' id='uri' type="text" />
             <input className='border-1 border-[#252525] p-1 w-fit' placeholder='Decimals' id='decimals' type="number" />
 
             <button className='border-2 border-[#252525] pt-1 pb-1 pr-4 pl-4 rounded-2xl w-fit' onClick={handleCreate}>Create</button>
