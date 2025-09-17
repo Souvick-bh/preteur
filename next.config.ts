@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
+        "pino-pretty": false,
         ...webpackFallback
       }
     }

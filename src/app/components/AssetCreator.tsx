@@ -5,11 +5,6 @@ import React from 'react'
 
 export default function AssetCreator() {
 
-  // const algodToken = '';
-  // const algodServer = 'https://testnet-api.algonode.cloud';
-  // const algodPort = '';
-
-  // const algodClient = new algosdk.Algodv2(algodToken,algodServer,algodPort);
 
   const { activeWallet,signTransactions,algodClient } = useWallet();
   const creator = activeWallet?.activeAccount?.address
@@ -27,7 +22,7 @@ export default function AssetCreator() {
     const uri = (document.getElementById('uri') as HTMLInputElement | null)?.value || '';
 
     const txn = algosdk.makeAssetCreateTxnWithSuggestedParamsFromObject({
-      //@ts-ignore
+     //@ts-expect-error
       sender: creator,
       suggestedParams,
       defaultFrozen: false,
@@ -38,14 +33,14 @@ export default function AssetCreator() {
       freeze: creator,
       clawback: creator,
       assetURL: uri,
-      //@ts-ignore
+      //@ts-expect-error
       total: supply,
-      //@ts-ignore
+      //@ts-expect-error
       decimals: decimals,
     });
 
     const signedTxn = await signTransactions([txn])
-    //@ts-ignore
+    //@ts-expect-error
     const { txid } = await algodClient.sendRawTransaction(signedTxn).do();
     const result = await algosdk.waitForConfirmation(
       algodClient,
