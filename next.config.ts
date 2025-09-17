@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
       config.resolve.fallback = {
         ...config.resolve.fallback,
         "pino-pretty": false,
+        "stream": false,
+      "os": false,
+      "path": false,
+      "fs": false,
         ...webpackFallback
       }
     }
