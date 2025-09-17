@@ -44,7 +44,7 @@ function LoanCreator() {
    
     
     if (!activeWallet || !activeWallet.activeAccount) {
-      alert('Please connect your wallet first.');
+      console.log('Please connect your wallet first.');
       return;
     }
 
@@ -117,7 +117,7 @@ const signedBlobs = signedTxns!.map((b64) =>
   if (activeWallet) {
     borrower_add = activeWallet?.activeAccount?.address;
   } else {
-    alert('Connect wallet please')
+    console.log('Connect wallet please')
   }
 
   async function addToDB() {

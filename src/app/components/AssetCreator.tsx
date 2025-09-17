@@ -11,7 +11,7 @@ export default function AssetCreator() {
 
   async function handleCreate() {
     if(!creator) {
-      alert("Nope")
+      console.log("Nope")
     }
     const suggestedParams = await algodClient.getTransactionParams().do();
 
