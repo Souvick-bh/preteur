@@ -2,7 +2,7 @@
 
 import { useWallet,  } from '@txnlab/use-wallet-react'
 import React from 'react'
-import supabase from '../connectSupabase/client'
+// import supabase from '../connectSupabase/client'
 import algosdk from 'algosdk';
 
 function LoanCreator() {
@@ -120,24 +120,24 @@ const signedBlobs = signedTxns!.map((b64) =>
     console.log('Connect wallet please')
   }
 
-  async function addToDB() {
-    const assetId = Number((document.getElementById('assetid') as HTMLInputElement).value)
-    await sendTransfer();
-    const { error: dbError } = await supabase
-      .from('loandb')
-      .insert({
-        borrower_id: borrower_add,
-        asset_id: assetId,
-      });
+//   async function addToDB() {
+//     const assetId = Number((document.getElementById('assetid') as HTMLInputElement).value)
+//     await sendTransfer();
+//     const { error: dbError } = await supabase
+//       .from('loandb')
+//       .insert({
+//         borrower_id: borrower_add,
+//         asset_id: assetId,
+//       });
 
-    if (dbError) throw dbError;
+//     if (dbError) throw dbError;
 
-  }
+//   }
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center gap-5 border-2 border-[#252525] p-8 rounded-4xl h-fit w-full mb-8 duration-300 ease-in-out hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[5px_5px_1px_0px_rgba(255,255,255)]">
-        <button onClick={addToDB} className='border-2 border-[#252525] pt-2 pb-2 pr-4 pl-4 rounded-2xl cursor-pointer hover:bg-[#1f1f1f]'>Request Loan</button>
+      <div className="flex flex-col text-[#ffffff] justify-center items-center gap-5 border-2 border-[#252525] p-8 rounded-4xl h-fit w-full mb-8 duration-300 ease-in-out hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[5px_5px_1px_0px_rgba(255,255,255)]">
+        <button onClick={sendTransfer} className='border-2 border-[#252525] pt-2 pb-2 pr-4 pl-4 rounded-2xl cursor-pointer hover:bg-[#1f1f1f]'>Request Loan</button>
         <input id='assetid' placeholder='Asset-Id' type="number" className='border-2 border-[#252525] rounded-lg text-center' />
         {activeWallet?.activeAccount && (
           <div>

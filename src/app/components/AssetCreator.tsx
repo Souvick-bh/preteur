@@ -54,15 +54,15 @@ export default function AssetCreator() {
 
     return(
         <div>
-          <div className='flex flex-col justify-center items-center gap-5 border-2 border-[#252525] p-8 rounded-4xl h-fit w-full mb-8 duration-300 ease-in-out hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[5px_5px_1px_0px_rgba(255,255,255)]'>
-            <div>Token Launchpad</div>
+          <div className='flex flex-col bg-transparent justify-center items-center gap-5 border-2 border-[#252525] p-8 rounded-4xl h-fit w-full mb-8 duration-300 ease-in-out hover:-translate-x-2 hover:-translate-y-2 hover:shadow-[5px_5px_1px_0px_rgba(255,255,255)]'>
+            <div className='font-semibold '>Token Launchpad</div>
             <input className='border-1 rounded-lg border-[#252525] p-1 w-fit' placeholder='Unit-Name' id='unitName' type="text" />
             <input className='border-1 rounded-lg border-[#252525] p-1 w-fit' placeholder='Asset-Name' id='assetName' type="text" />
             <input className='border-1 rounded-lg border-[#252525] p-1 w-fit' placeholder='Supply' id='supply' type="number" />
             <input className='border-1 rounded-lg border-[#252525] p-1 w-fit' placeholder='URI (optional)' id='uri' type="text" />
             <input className='border-1 rounded-lg border-[#252525] p-1 w-fit' placeholder='Decimals' id='decimals' type="number" />
 
-            <button className='border-2 border-[#252525] pt-1 pb-1 pr-4 pl-4 rounded-2xl w-fit' onClick={handleCreate}>Create</button>
+            <button className='border-2 border-[#252525] pt-1 pb-1 pr-4 pl-4 rounded-2xl w-fit cursor-pointer hover:bg-[#1f1f1f]' onClick={handleCreate}>Create</button>
             
           </div>
 

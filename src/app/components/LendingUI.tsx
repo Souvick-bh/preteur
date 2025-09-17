@@ -4,7 +4,7 @@ import LoanCreator from './LoanCreator'
 
 function LendingUI() {
   return (
-    <div>
+    <div className='bg-transparent'>
       <LoanCreator />
     </div>
   )
