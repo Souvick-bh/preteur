@@ -17,8 +17,8 @@ export default function AssetCreator() {
 
     const unitName = (document.getElementById('unitName') as HTMLInputElement | null)?.value || '';
     const assetName = (document.getElementById('assetName') as HTMLInputElement | null)?.value || '';
-    const supply = (document.getElementById('supply') as HTMLInputElement | null)?.value || Number;
-    const decimals = (document.getElementById('decimals') as HTMLInputElement | null)?.value || Number;
+    const supply = Number((document.getElementById('supply') as HTMLInputElement | null)?.value || Number);
+    const decimals = Number((document.getElementById('decimals') as HTMLInputElement | null)?.value || Number);
     const uri = (document.getElementById('uri') as HTMLInputElement | null)?.value || '';
 
     const txn = algosdk.makeAssetCreateTxnWithSuggestedParamsFromObject({
@@ -33,9 +33,8 @@ export default function AssetCreator() {
       freeze: creator,
       clawback: creator,
       assetURL: uri,
-      //@ts-expect-error: assigning string to number for test
+      
       total: supply,
-      //@ts-expect-error: assigning string to number for test
       decimals: decimals,
     });
 
